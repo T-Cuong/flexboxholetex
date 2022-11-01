@@ -1,0 +1,67 @@
+/*flex box xu ly bo cuc theo mot chieu (theo chieu ngang(truc manin) hoac theo chieu doc(truc cross)*/
+/*khi mot element duoc xet thuoc tinh la display flex thi mac 
+dinh no se tro thanh 1 flex container, cac element 
+con truc tiep cua no (box 1, 2,3) se tro thanh cac flex item */
+* {/*reset*/
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 800px;
+    border: 5px solid gray;
+    display: flex;
+    flex-direction: row;/*cac element nam tu trai qua phai theo truc nam ngang */
+    /* flex-direction: column; cac element nam theo chieu doc thu tu tu tren xuong duoi */
+    /* flex-direction: column-reverse; cac element nam theo chieu doc thu tu tu duoi len tren  */
+    /* flex-direction: row-reverse; cac element xap sep theo chieu nam ngang tu phai sang trai */
+    /* flex-wrap: nowrap;khi ta co qua nhieu flex item o phia trong, cac flex item se khong chuyen xuong hang tiep theo ma tran ra ngoai flex container */
+    flex-wrap: wrap;/*nguoc lai voi nowrap cac flex item se tu dong xuong hang*/
+    flex-flow: row wrap; /*gia tri row la cua flex-direction con wrap la cua flex-wrap, flex-flow thay the cho ca flex-direction va flex-wrap*/
+    justify-content:flex-start ;/* justify-content su dung de can chinh cac flex item theo chieu ngang, 
+    flex-start lam cho flex item nam ve phia trai, flex-end nam ve phia phai, center thi ra giua, 
+    space-between cac flex item chia nhau ra 3 goc trai phai giua va se co khoang trong giua cac flex item,
+    space-around giong space-between chi khac la co them khoang trang giua element dau tien voi cot ben trai 
+    va khoang trang giua element cuoi voi cot ben phai, 
+    space-evenly giong space aroaund chi khac la cac khoang trong giua cac item la bang nhau   */
+    align-items: flex-start;/*can chinh theo truc cross, cac flex item di chuyen ra phia giua theo chieu doc
+    flex-end cac flex-item nam o phia duoi cung theo truc doc
+    flex-start cac flex-item nam o phai tren theo truc doc*/
+    /* flex-basis: auto;dung de xac dinh kich thuoc cua cac flex item, auto: trinh duyet
+    kiem tra xem item co dang duoc xet thuoc tinh la width ko neu co thi se dc
+    gan vao gia tri cua flex-basis, con neu ko xet gia tri cho width thi gia tri
+    cua flex-basis se la kich thuoc cua noi dung trong cac flex item, ngoai ra co the xet 
+    truc tiep cho flex-basis vd: flex-basis: 200px */
+    flex-grow: 1;/*lam tang kich thuoc cua flex-item theo truc main, khi xet flex-grow: 1 thi flex item se chiem
+    het khoang khong gian cua container*/
+    flex-shrink: 1;/*thuoc tinh nay kha dung khi cac flex-item nam tran ra ngoai flex container*/
+    flex: 1 1 auto;/*3 gia tri nay lan luot la cua grow shrink va basic*/
+}
+
+.box {
+    height: 200px;
+    padding: 10px;
+}
+
+.box p {
+    font-size: 20px;
+    color: white;
+}
+/*order la sap xep thu tu cua cac flex item va mac dinh order se la 0*/
+.box-1 {
+    background-color: rgb(248, 99, 31);
+    order: 2;
+}
+
+.box-2 {
+    background-color: rgb(48, 197, 28);
+    flex-grow: 3;/*box 2 chiem khoang khong gian la 3/5 theo chieu rong container, box 1 va box 2 chiem theo ti le la 1/5*/
+    order: 1;
+}
+
+.box-3 {
+    background-color: rgb(33, 36, 233);
+    order: 3;
+}
